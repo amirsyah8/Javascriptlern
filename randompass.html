@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random pass</title>
+</head>
+<body>
+    
+    <script>
+        function generatePass(length, incluLowerdecase, incluUppercase, incluNumber, incluSyembol){
+            const incluLowerdecaseChar = "abcdefghijklmnopqrstuvwxyz";
+            const incluUppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const incluNumberChar = "1234567890";
+            const incluSyembolChar = "~!@#$%^&*()_+=-";
+
+            let allowedChar = "";
+            let password = "";
+
+            allowedChar += incluLowerdecase? incluLowerdecaseChar : "";
+            allowedChar += incluUppercase? incluUppercaseChar : "";
+            allowedChar += incluNumber? incluNumberChar : "";
+            allowedChar += incluSyembol? incluSyembolChar : "";
+            //This is a ternary operator in JavaScript. The statement you provided essentially means:
+            //If incluLowerdecase is truthy, add its value to allowedChar.
+            // If incluLowerdecase is falsy (e.g., undefined, null, 0, false, or an empty string), do nothing.
+            //condition ? value_if_true : value_if_false;
+
+            if(length<= 0){
+                return "password mesti sekurang2 nya 1";
+            }else if(allowedChar.length === 0){
+                return "sekurang2 nya misti enable 1";
+            }else{
+                for(let i = 0; i < length ; i++){
+                    const randomIndex = Math.floor(Math.random()*allowedChar.length + 1);
+                    //console.log(`random index is ${randomIndex}`);
+                    password += allowedChar[randomIndex];
+                }
+            }
+            
+
+            return password;
+        }
+    const pasLength = 100;
+    const incluLowerdecase = true;
+    const incluUppercase = true;
+    const incluNumber = true;
+    const incluSyembol = true;
+
+    const password = generatePass(pasLength, incluLowerdecase, incluUppercase, incluNumber, incluSyembol);
+    console.log(`generated passwod is ${password}`);
+
+    </script>
+</body>
+</html>
