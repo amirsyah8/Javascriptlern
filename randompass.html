@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random pass</title>
+    <style>
+        /* Center the div on the page */
+        #buttonAndTextBox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+            background-color: bisque;
+            border-radius: 30px;
+            border: 3em;
+            border-color: black;
+            }
+            #passwLength,
+        #summitPassLength {
+            width: 200px;
+            height: 40px;
+            margin: 5px; /* Adds some spacing between elements */
+            font-size: 16px; /* Ensures consistent text size */
+            box-sizing: border-box; /* Prevents padding from increasing the size */
+        }
+
+/* Style input and button to have the same size */
+#passwLength,
+#summitPassLength {
+    width: 200px;
+    height: 40px;
+    margin: 5px; /* Adds some spacing between elements */
+    font-size: 16px; /* Ensures consistent text size */
+    box-sizing: border-box; /* Prevents padding from increasing the size */
+}
+    </style>
 </head>
 <body>
-    <input type="text" id="passwLength">
-    <button id="summitPassLength">OK</button><br>
+    <div id="buttonAndTextBox">
+        <input type="text" id="passwLength"><br>
+        <button id="summitPassLength">OK</button>
+    </div>
+    <br>
     <input type="checkbox" id="incluLowerdecaseChar"> <label for="incluLowerdecaseChar">Lower case</label><br>
     <input type="checkbox" id="incluUppercaseChar"> <label for="incluUppercaseChar">Upper case</label><br>
     <input type="checkbox" id="incluNumberChar"> <label for="incluNumberChar">Number</label><br>
@@ -58,7 +93,7 @@
         const incluSyembol = document.getElementById("incluSyembolChar").checked;
         const password = generatePass(pasLength, incluLowerdecase, incluUppercase, incluNumber, incluSyembol);
         console.log(`generated passwod is ${password}`);
-        document.getElementById("passwordRand").textContent = `random password adalah :\n${password}`;
+        document.getElementById("passwordRand").textContent = `random password adalah : ${password}`;
     } 
     
 
