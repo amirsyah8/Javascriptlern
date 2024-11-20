@@ -6,6 +6,14 @@
     <title>Random pass</title>
 </head>
 <body>
+    <input type="text" id="passwLength">
+    <button id="summitPassLength">OK</button><br>
+    <input type="checkbox" id="incluLowerdecaseChar"> <label for="incluLowerdecaseChar">Lower case</label><br>
+    <input type="checkbox" id="incluUppercaseChar"> <label for="incluUppercaseChar">Upper case</label><br>
+    <input type="checkbox" id="incluNumberChar"> <label for="incluNumberChar">Number</label><br>
+    <input type="checkbox" id="incluSyembolChar"> <label for="incluSyembolChar">Syambol</label>
+
+    <p id="passwordRand"></p>
     
     <script>
         function generatePass(length, incluLowerdecase, incluUppercase, incluNumber, incluSyembol){
@@ -41,14 +49,19 @@
 
             return password;
         }
-    const pasLength = 100;
-    const incluLowerdecase = true;
-    const incluUppercase = true;
-    const incluNumber = true;
-    const incluSyembol = true;
 
-    const password = generatePass(pasLength, incluLowerdecase, incluUppercase, incluNumber, incluSyembol);
-    console.log(`generated passwod is ${password}`);
+    document.getElementById("summitPassLength").onclick = function(){
+        const pasLength = document.getElementById("passwLength").value;
+        const incluLowerdecase = document.getElementById("incluLowerdecaseChar").checked;
+        const incluUppercase = document.getElementById("incluUppercaseChar").checked;
+        const incluNumber = document.getElementById("incluNumberChar").checked;
+        const incluSyembol = document.getElementById("incluSyembolChar").checked;
+        const password = generatePass(pasLength, incluLowerdecase, incluUppercase, incluNumber, incluSyembol);
+        console.log(`generated passwod is ${password}`);
+        document.getElementById("passwordRand").textContent = `random password adalah :\n${password}`;
+    } 
+    
+
 
     </script>
 </body>
