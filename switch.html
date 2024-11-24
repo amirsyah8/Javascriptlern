@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch</title>
+</head>
+<body>
+    <label for="masukHarti">Masukkan hari</label>
+    <input type="text" id="masukHarti">
+    <button id="summitHari">OK</button>
+    <p id="hariResult"></p>
+    <script>
+        let day;
+        let messej;
+
+        document.getElementById("summitHari").onclick = function(){
+        day = document.getElementById("masukHarti").value.trim();  
+        day = Number(day) ? Number(day) : day
+        switch(day){
+            case 1: 
+                messej = "Hari ini adalah Ahad";
+                break;
+            case 2:
+                messej = "Hari ini adalah isnin";
+                break;
+            case 3:                
+                messej = "Hari ini adalah selasa";
+                break;
+            case 4:                
+                messej = "Hari ini adalah rabu";
+                break;
+            case 5:                
+                messej = "Hari ini adalah khamis";
+                break;
+            case 6:                
+                messej = "Hari ini adalah jumaat";
+                break;
+            case 7:                
+                messej = "Hari ini adalah sabtu";
+                break;
+            default:
+                messej = Number(day) ? "sila masukkan hari yang betul" : `${day} bukanlah hari`
+        }
+
+        document.getElementById("hariResult").textContent = messej;
+    }
+    </script>
+</body>
+</html>
