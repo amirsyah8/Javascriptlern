@@ -61,7 +61,6 @@
         paragraph12.textContent = phoneNumber.replaceAll("-","");//replace = tuka 1 je. replaceAll, tuka semua
         document.body.appendChild(paragraph12);
 
-        //let phoneNumber = "013-203-1203";
         let paragraph13 = document.createElement("p");
         paragraph13.textContent = phoneNumber.padStart(15,0);// sama padEnd()
         document.body.appendChild(paragraph13);//padStart(12,0); total akan jadi 12, selebihnya dia akan append 0 kat depan

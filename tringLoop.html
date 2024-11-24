@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Methods</title>
+</head>
+<body>
+    <script>
+        let userName = "Amir shah ";
+        let phoneNumber = "013-203-1203";
+
+        // Array of operations and their corresponding labels
+        const operations = [
+            { label: "Character at index 1", value: userName.charAt(1) },
+            { label: "Index of first space", value: userName.indexOf(" ") },
+            { label: "Last index of 'a'", value: userName.lastIndexOf("a") },
+            { label: "Length of username", value: userName.length },
+            { label: "Trimmed username", value: userName.trim() },
+            { label: "Uppercase username", value: userName.toLocaleUpperCase() },
+            { label: "Lowercase username", value: userName.toLocaleLowerCase() },
+            { label: "Repeated username", value: userName.repeat(3) },
+            { 
+                label: "Starts with 'A'", 
+                value: userName.startsWith("A") ? "Your username should start with 'A'" : "Your username is fine"
+            },
+            { 
+                label: "Ends with space", 
+                value: userName.endsWith(" ") ? "Your username should not end with space" : "Your username is fine"
+            },
+            { 
+                label: "Includes space", 
+                value: userName.includes(" ") ? "Your username should not include space" : "Your username is fine"
+            },
+            { 
+                label: "Phone number without dashes", 
+                value: phoneNumber.replaceAll("-", "") 
+            },
+            { 
+                label: "Phone number padded to 15 characters", 
+                value: phoneNumber.padStart(15, "0") 
+            }
+        ];
+
+        // Loop through the operations and create the paragraphs
+        operations.forEach(operation => {
+            let paragraph = document.createElement("p");
+            paragraph.textContent = `${operation.label}: ${operation.value}`;
+            document.body.appendChild(paragraph);
+        });
+    </script>
+</body>
+</html>
