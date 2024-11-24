@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = "0"
+        let b = "0"
+        let c = "0"
+        let d = ""
+        let e = ""
+        let f = ""
+        let g = "12" // tak declare typeof
+        let x = "pizza";
+        let y = "pizza";
+        let z = "pizza";
+
+        a = Number(a);
+        b = String(b);
+        c = Boolean(c);
+        d = Number(d);
+        e = String(e);
+        f = Boolean(f);
+        //g = tak declare
+        x = Number(x);
+        y = String(y);
+        z = Boolean(z);
+
+        console.log(a, typeof a); //0 'number'
+        console.log(b, typeof b); //0 string
+        console.log(c, typeof c); //true 'boolean'
+        console.log(d, typeof d); //0 'number'
+        console.log(e, typeof e); // string
+        console.log(f, typeof f); //false 'boolean'
+        console.log(g, typeof g); //12 string (tak declare auto string)
+        console.log(x, typeof x); //NaN 'number'
+        console.log(y, typeof y); //pizza string
+        console.log(z, typeof z); //true 'boolean'
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="umurinput">masukkan umur</label>
+    <input type="text" id="umurinput">
+    <button id="summitUmur">Check</button>
+    <p id="result"></p>
+
+    <script>
+        //ternary operator
+        //condition ? codeIfTrue :codeIfFalse;
+
+        //let age = 14;
+        document.getElementById("summitUmur").onclick = function(){
+            let age = document.getElementById("umurinput").value.trim();// Trim to remove extra spaces
+            if (age === "") {
+                document.getElementById("result").textContent = "Please enter your age.";
+                document.getElementById("result").style.color = "red"; // Set text color to red
+            }else{
+                let mesej = age >= 18 ? "you are adult" : "you not adult";
+                document.getElementById("result").textContent = mesej;
+                document.getElementById("result").style.color = ""; // Set text color to red
+                //console.log(mesej);
+                //console.log(age);
+            }
+        }
+
+        //cara lama
+        //let messej;
+        //if(age>=18){
+        //    mesej = "you are adult";
+        //}
+        //else{
+        //    mesej = "not adult";
+        //}
+    </script>
+</body>
+</html>
