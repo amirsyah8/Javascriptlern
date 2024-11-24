@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String methods</title>
+</head>
+<body>
+    
+    <script>
+        let userName = "Amir shah "
+        let paragraph = document.createElement("p");
+        paragraph.textContent = userName.charAt(1);//hasil hurup ape yg index 1
+        document.body.appendChild(paragraph);
+
+        let paragraph2 = document.createElement("p");
+        paragraph2.textContent = userName.indexOf(" ");// space indek ke berapa
+        document.body.appendChild(paragraph2);
+
+        let paragraph3 = document.createElement("p");
+        paragraph3.textContent = userName.lastIndexOf("a"); //a yg pertama ditemui dari belakang, tapi kira dari depan
+        document.body.appendChild(paragraph3);
+
+        let paragraph4 = document.createElement("p");
+        paragraph4.textContent = userName.length;//panjang world
+        document.body.appendChild(paragraph4);
+
+        let paragraph5 = document.createElement("p");
+        paragraph5.textContent = userName.trim();//buang space depan dan belakang sahaja kalau ada
+        document.body.appendChild(paragraph5);
+
+        let paragraph6 = document.createElement("p");
+        paragraph6.textContent = userName.toLocaleUpperCase();//
+        document.body.appendChild(paragraph6);
+
+        let paragraph7 = document.createElement("p");
+        paragraph7.textContent = userName.toLocaleLowerCase();//
+        document.body.appendChild(paragraph7);
+
+        let paragraph8 = document.createElement("p");
+        paragraph8.textContent = userName.repeat(3);//
+        document.body.appendChild(paragraph8);
+
+        let paragraph9 = document.createElement("p");
+        resultStartWith = userName.startsWith("A") ? "your username no sholud start with A" : "yur usernameok"
+        paragraph9.textContent = resultStartWith;//mencari adakah dia start dengan " ". kalau ya true
+        document.body.appendChild(paragraph9);
+
+        let paragraph10 = document.createElement("p");
+        resultStartWith = userName.endsWith(" ") ? "your username no sholud end with space" : "yur usernameok"
+        paragraph10.textContent = resultStartWith;//mencari adakah dia last dengan " ". kalau ya true
+        document.body.appendChild(paragraph10);
+
+        let paragraph11 = document.createElement("p");
+        resultStartWith = userName.includes(" ") ? "your username no sholud incluse with space" : "yur usernameok"
+        paragraph11.textContent = resultStartWith;//mencari adakah dia last dengan " ". kalau ya true
+        document.body.appendChild(paragraph11);
+
+        let phoneNumber = "013-203-1203";
+        let paragraph12 = document.createElement("p");
+        paragraph12.textContent = phoneNumber.replaceAll("-","");//replace = tuka 1 je. replaceAll, tuka semua
+        document.body.appendChild(paragraph12);
+
+        //let phoneNumber = "013-203-1203";
+        let paragraph13 = document.createElement("p");
+        paragraph13.textContent = phoneNumber.padStart(15,0);// sama padEnd()
+        document.body.appendChild(paragraph13);//padStart(12,0); total akan jadi 12, selebihnya dia akan append 0 kat depan
+
+    </script>
+</body>
+</html>
