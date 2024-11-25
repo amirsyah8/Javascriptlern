@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String slicing</title>
+    <style>
+        p {
+          display: inline;
+        }
+    </style>
+</head>
+<body>
+<div>
+    String slicing dalam JavaScript adalah teknik untuk mengambil sebahagian daripada teks (string) berdasarkan indeks tertentu. Ini dilakukan dengan menggunakan kaedah slice() yang tersedia pada objek string. Dengan slicing, anda boleh mengekstrak bahagian string tanpa mengubah string asal.
+    Sintaks slice():
+    <br><br>
+    string.slice(startIndex, endIndex);
+</div>
+<br>
+<p">Nama penuh = </p>
+<p id="fullMyName"></p><br>
+<p>Nama Depan = </p>
+<p id="firstMyName"></p><br>
+<p>Nama Belakang = </p>
+<p id="lastMyName"></p>
+
+</body>
+    <script>
+        // String slicing 
+        const fullname = "amirsyah";
+        let firstName = fullname.slice(0,4);
+        let lastName = fullname.slice(4,);
+        let fitstChar = fullname.slice(0,1);//a
+        let lastChar = fullname.slice(-3);//yah
+
+        document.getElementById("fullMyName").textContent = fullname;// amirsyah
+        document.getElementById("firstMyName").textContent = firstName;//amir
+        document.getElementById("lastMyName").textContent = lastName;//syah
+    </script>
+</body>
+</html>
