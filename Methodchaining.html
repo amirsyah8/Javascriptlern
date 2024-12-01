@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method chaining</title>
+</head>
+<body>
+
+    old style <br><br>
+
+    let username = amir shah;<br>
+    username = username.trim();<br>
+    let 1stChar = username.charAt(0);<br>
+    1stChar = 1stChar.toUpperCase();<br><br>
+
+    let aRest = username.slice(1);<br>
+    aRest = aRest.toLowerCase();<br><br>
+
+    username = 1stChar + aRest;<br><br>
+
+    <label for="inputName">Input your name</label>
+    <input type="text" id="inputName">
+    <button id="summitName">OK</button>
+    <script>
+        document.getElementById("summitName").onclick = function(){
+            let username = document.getElementById("inputName").value.trim().charAt(0).toUpperCase() + document.getElementById("inputName").value.trim().slice(1).toLowerCase();
+            console.log(username);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable scope</title>
+</head>
+<body>
+    
+    <script>
+        let x = 150;
+        //let x = 2; => tak boleh declare mende sama 2 kali, error
+        // x = 2; => kalau nak declare sekali lagi, xyah let
+        fungsi4();// akan return 150, sebab dia ambik dari global
+        function fungsi1(){
+            x = 7;
+            console.log(x);
+        }
+        function fungsi2(){ 
+            x = 4;          //tak apa declare 2 kali, sebab x berada dlm local, dipanggill local variable
+            console.log(x); //
+        }
+        function fungsi3(){ 
+            y = 4;          //cuba tukar y, 
+           //  console.log(x); tapi panggil x dari function lagi akan gagal, ini akan error
+        }
+        function fungsi4(){ 
+            console.log(x); //
+        }
+        fungsi1(); //jalankan fungsi
+        fungsi4(); //dia akan dpt result 7, bukan dari global, sebab fungsi 1 jalan dulu.
+                    // tapi kalau tutup variable line 11, dia xkan boleh access dari funtion 1 yang telah jalan
+
+    </script>
+</body>
+</html>
