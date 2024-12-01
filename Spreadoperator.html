@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread operator</title>
+</head>
+<body>
+    <h1 id="maxOrMin"></h1>
+    <h1 id="maxOrMin2"></h1>
+    <h3 id="huruf"></h3>
+    <h3 id="huruf2"></h3>
+    <script>
+        let num = [1,2,3,4,5,6];
+        document.getElementById("maxOrMin").textContent = Math.max(num);// result NaN
+        document.getElementById("maxOrMin2").textContent = Math.max(...num); // result 6
+        // ...num bermaksud, dia unpack dan baca kat dalam. kalau mcm yg result NaN
+        // dia baca num terus. so num bukan numbor
+
+        //cuba perkataan
+        let userName = "amir shah";
+        let huruf = [...userName];
+        console.log(huruf);// result sebagai object [ "a", "m", "i", "r", " ", "s", "h", "a", "h" ]
+        document.getElementById("huruf").textContent = huruf; //a,m,i,r, ,s,h,a,h
+        document.getElementById("huruf2").textContent = huruf.join(""); //amir shah
+
+        let fruit = ["apple", "banana", "cucumber"];
+        let vagetables = ["sawi", "kubis", "timun"];
+        let food = [...fruit, ...vagetables, "telur", "lada"]; //
+        console.log(food);// array campur semua
+
+        //rest parameter
+        function staff(...mnyammar){
+            return mnyammar;
+        }
+
+        let worker1 = "mui ling";
+        let worker2= "amiu";
+        let worker3= "600";
+        let worker4 = "co jy";
+
+        console.log(staff(worker1,worker2,worker3,worker4))//array  myamnar
+
+        function sum(...nombors){
+            result = 0;
+            for(let nombor of nombors){// for(let nombor in nombors){ dia jadi string 00123456
+                result += nombor;      // in merujuk pada no indeks, kalau of tu merujuk pada value
+            }
+            return result;
+        }
+        console.log(sum(1,2,3,4,5,6))
+
+    </script>
+</body>
+</html>
