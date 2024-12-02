@@ -25,7 +25,7 @@
             background-color: rgb(64, 77, 95);
         }
         button:active{
-            background-color: rgb(130, 82, 168);
+            background-color: rgb(144, 82, 168);
         }
         input{
             font-size: 2rem;
@@ -33,17 +33,42 @@
             text-align: center;
             font-weight: bold;
         }
+        #diceResult{
+            margin: 25px;
+        }
+        #diceImg img{
+            width: 150px;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <h1>Dice roller</h1>
         <label for=""># of dice</label>
-        <input type="number" min="1" value="1">
+        <input type="number" id="numOfDice" min="1" value="1">
         <button onclick="rollsDice()">Roll dice</button>
         <div id="diceResult"></div>
         <div id="diceImg"></div>
     </div>
-    
+    <script>
+        function rollsDice(){
+            const numOfDice = document.getElementById("numOfDice").value;
+            const diceResult = document.getElementById("diceResult");
+            const diceImg = document.getElementById("diceImg");
+            const values = [];
+            const ImgOfDice = [];
+
+            for(let i = 0; i < numOfDice; i++){
+                const value = Math.floor(Math.random()*6)+1;
+                //console.log(value);
+                values.push(value); 
+                ImgOfDice.push(`<img src="dice_img/Dice-${value}.png" alt="Dice ${value}">`);
+            }
+            console.log(values);
+            diceResult.textContent = `Dice: ${values.join(", ")}`;
+            diceImg.innerHTML = ImgOfDice.join("");
+        }
+    </script>
 </body>
 </html>
