@@ -65,7 +65,8 @@
                 values.push(value); 
                 ImgOfDice.push(`<img src="dice_img/Dice-${value}.png" alt="Dice ${value}">`);
             }
-            console.log(values);
+            //console.log(values);
+            console.log(ImgOfDice);
             diceResult.textContent = `Dice: ${values.join(", ")}`;
             diceImg.innerHTML = ImgOfDice.join("");
         }
