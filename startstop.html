@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="dateNew"></h2>
+    <h2 id="dateNow"></h2>
+    <script>
+        function updateJam(){
+            const sekarang = new Date();
+            let jam = sekarang.getHours();
+            const meredian = jam >=12 ? "PM" : "AM";
+            jam = jam % 12 || 12;
+            jam = jam.toString().padStart(2,0);
+            const minit = sekarang.getMinutes().toString().padStart(2,0);
+            const sec = sekarang.getSeconds().toString().padStart(2,0);
+            const mili = sekarang.getMilliseconds().toString().padStart(3,0);
+            const masaPerkataan = `${jam}:${minit}:${sec}:${mili}  ${meredian}`;
+            document.getElementById("dateNew").textContent = masaPerkataan;
+        }
+        updateJam();
+        setInterval(updateJam,10);
+        document.getElementById("dateNow").textContent = Date.now();
+    </script>
+</body>
+</html>
