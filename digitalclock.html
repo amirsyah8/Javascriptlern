@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-image: url(bg.webp);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+        }
+        #clock-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            border: 2px solid;
+        }
+        #clock{
+            font-family: monospace;
+            font-size: 6.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(5px);
+            background-color: rgba(201, 190, 175, 0.1);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock-container">
+        <div id="clock">00:00:00 AM</div>
+
+    </div>
+    <script>
+        function updateClock(){
+            const skrg = new Date();
+            let jam = skrg.getHours();
+            const pPtg = jam >= 12 ? 'PM' : 'AM';
+            jam = jam % 12 || 12;
+            jam = jam.toString().padStart(2,0);
+            const minit = skrg.getMinutes().toString().padStart(2,0);
+            const saat = skrg.getSeconds().toString().padStart(2,0);
+            const masaPerkataan = `${jam}:${minit}:${saat} ${pPtg}`;
+            document.getElementById("clock").textContent = masaPerkataan;
+        }
+        updateClock();
+        setInterval(updateClock,1000);
+    </script>
+</body>
+</html>
