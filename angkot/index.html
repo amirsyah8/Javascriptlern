@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angkot</title>
+</head>
+<body>
+<div class="angkot">
+    <li id="kerusi1"></li>
+    <li id="kerusi2"></li>
+    <li id="kerusi3"></li>
+    <li id="kerusi4"></li>
+    <li id="kerusi5"></li>
+    <li id="kerusi6"></li>
+    <li id="kerusi7"></li>
+    <li id="kerusi8"></li>
+    <li id="kerusi9"></li>
+</div>
+
+<button id="stop" onclick="stop()">Stop</button>
+    <script>
+        const orang = ["amie", "teha", "nani", "alif", "bujang", "ripin", "bulat", "danial", "mimi"];
+        function stop(){
+            const kerusi = [];
+            for(i=1;i<=9;i++){
+                kerusi.push(document.getElementById(`kerusi${i}`));
+            }
+            kerusi.forEach((element,index) =>{
+                    element.textContent = orang[index];
+            });
+            console.log(kerusi);
+        }
+        
+    </script>
+</body>
+</html>
