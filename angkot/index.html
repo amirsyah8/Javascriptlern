@@ -18,19 +18,32 @@
     <li id="kerusi9"></li>
 </div>
 
-<button id="stop" onclick="stop()">Stop</button>
+<button id="naik" onclick="Angkot.naik()">Naik</button><br>
+<button id="turun" onclick="turun()">Turun</button> 
+<input type="text">
+<input id="onkos" type="number">
     <script>
-        const orang = ["amie", "teha", "nani", "alif", "bujang", "ripin", "bulat", "danial", "mimi"];
-        function stop(){
-            const kerusi = [];
-            for(i=1;i<=9;i++){
-                kerusi.push(document.getElementById(`kerusi${i}`));
+        function Angkot(penumpang, kutipan){
+            this.penumpang = penumpang;
+            this.kutipan = kutipan;
+            this.naik = function(namaPenumpang){
+                this.penumpang.push(namaPenumpang);
+                return this.penumpang;
             }
-            kerusi.forEach((element,index) =>{
-                    element.textContent = orang[index];
-            });
-            console.log(kerusi);
+            console.log(penumpang);
         }
+      
+        // const orang = ["amie", "teha", "nani", "alif", "bujang", "ripin", "bulat", "danial", "mimi"];
+        // function stop(){
+        //     const kerusi = [];
+        //     for(i=1;i<=9;i++){
+        //         kerusi.push(document.getElementById(`kerusi${i}`));
+        //     }
+        //     kerusi.forEach((element,index) =>{
+        //             element.textContent = orang[index];
+        //     });
+        //     console.log(kerusi);
+        // }
         
     </script>
 </body>
