@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angkot</title>
+</head>
+<body>
+<div class="angkot">
+    <li id="kerusi1"></li>
+    <li id="kerusi2"></li>
+    <li id="kerusi3"></li>
+    <li id="kerusi4"></li>
+    <li id="kerusi5"></li>
+    <li id="kerusi6"></li>
+    <li id="kerusi7"></li>
+    <li id="kerusi8"></li>
+    <li id="kerusi9"></li>
+</div>
+
+<button id="naik" onclick="naik()">Naik</button><input id="penumpangBaru" type="text"><br>
+<button id="turun" onclick="turun()">Turun</button> 
+<input id="penumpangLama" type="text">
+<input id="onkos" type="number">
+    <script>
+let penumpang = []; // Array untuk menyimpan nama penumpang
+
+function naik() {
+    const penumpangBaru = document.getElementById("penumpangBaru").value.trim(); // Ambil input dan buang ruang kosong di hujung
+
+    if (penumpangBaru === "") {
+        console.log("Sila masukkan nama penumpang!"); // Amaran jika input kosong
+        return;
+    }
+
+    if (penumpang.length < 8) { // Periksa jika masih ada ruang kosong
+        penumpang.push(penumpangBaru); // Tambah nama ke dalam array
+
+        for (let i = 1; i < 9; i++) { // Loop melalui kerusi
+            let kerusi = document.getElementById(`kerusi${i}`).textContent;
+
+            if (!kerusi) { // Jika kerusi kosong
+                document.getElementById(`kerusi${i}`).textContent = penumpangBaru; // Masukkan nama
+                break; // Hentikan loop selepas masukkan
+            }
+        }
+
+        document.getElementById("penumpangBaru").value = ""; // Kosongkan input
+    } else {
+        console.log("Penumpang penuh!"); // Paparkan mesej jika penuh
+    }
+}
+
+
+        
+    </script>
+</body>
+</html>
+
+<!-- function Angkot(penumpang, kutipan){
+    this.penumpang = penumpang;
+    this.kutipan = kutipan;
+    this.naik = function(namaPenumpang){
+        this.penumpang.push(namaPenumpang);
+        return this.penumpang;
+    }
+    console.log(penumpang);
+}
+
+// const orang = ["amie", "teha", "nani", "alif", "bujang", "ripin", "bulat", "danial", "mimi"];
+// function stop(){
+//     const kerusi = [];
+//     for(i=1;i<=9;i++){
+//         kerusi.push(document.getElementById(`kerusi${i}`));
+//     }
+//     kerusi.forEach((element,index) =>{
+//             element.textContent = orang[index];
+//     });
+//     console.log(kerusi);
+// } -->
