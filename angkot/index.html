@@ -6,7 +6,7 @@
     <title>Angkot</title>
 </head>
 <body>
-<div class="angkot">
+<div id="bilKerusi" class="angkot">
     <li id="kerusi1"></li>
     <li id="kerusi2"></li>
     <li id="kerusi3"></li>
@@ -24,22 +24,24 @@
 <input id="onkos" type="number">
 <h5>
     <div id="massage"></div>
+    <div id="kostim"></div>
 </h5>
     <script>
 let penumpang = []; // Array untuk menyimpan nama penumpang
+let totalWang = 0;
+const bilKerusi = document.getElementById("bilKerusi").childElementCount;//nak dapatkan bill kerusi
 
 function naik() {
-    const penumpangBaru = document.getElementById("penumpangBaru").value.trim(); // Ambil input dan buang ruang kosong di hujung
+    const penumpangBaru = document.getElementById("penumpangBaru").value.trim(); // Ambil input
 
     if (penumpangBaru == "") {
         document.getElementById("massage").textContent = "masukkan nama penumpang";//buh nama penumpang dulu
         return;
     }
 
-    if (penumpang.length < 4) { // Periksa jika masih ada ruang kosong
         document.getElementById("massage").textContent = "";//padamkan dah naik
-        for (let i = 1; i < 5; i++) { // Loop melalui kerusi
-            let kerusi = document.getElementById(`kerusi${i}`).textContent; 
+        for (let i = 0; i < bilKerusi; i++) { // Loop melalui kerusi
+            let kerusi = document.getElementById(`kerusi${i+1}`).textContent; 
 
             if(kerusi == penumpangBaru){ //check adakah kerusi dah ade org
                 document.getElementById("massage").textContent = "Penumpang sudah naik"; //warning dah naik
@@ -47,19 +49,45 @@ function naik() {
             }
 
             if (!kerusi) { // Jika kerusi kosong
-                document.getElementById(`kerusi${i}`).textContent = penumpangBaru; // Masukkan nama
-                penumpang.push(penumpangBaru); // Tambah nama ke dalam array
+                document.getElementById(`kerusi${i+1}`).textContent = penumpangBaru; // Masukkan nama
+                penumpang[i] = penumpangBaru; // Tambah nama ke dalam array
+                document.getElementById("penumpangBaru").value = ""; // Kosongkan input
                 break; // Hentikan loop selepas masukkan
             } else {
-                document.getElementById("massage").textContent = "";//kerusi penuh
+                if(i==bilKerusi-1){
+                    document.getElementById("massage").textContent = "sudah penuh";// Paparkan mesej jika penuh
+                }
+                
             }
         }
-
-        document.getElementById("penumpangBaru").value = ""; // Kosongkan input
-    } else {
-        document.getElementById("massage").textContent = "sudah penuh";// Paparkan mesej jika penuh
-    }
 }
+
+function turun(){
+    const penumpangLama = document.getElementById("penumpangLama").value.trim(); // Ambil input turun
+    const kostim = parseFloat(document.getElementById("onkos").value);
+    for(let i = 0;i < bilKerusi; i++){
+        if(penumpangLama == penumpang[i]){
+            if(!isNaN(kostim)){
+                document.getElementById(`kerusi${i+1}`).textContent = "";
+                document.getElementById("massage").textContent = `${penumpang[i]} telah turun`;//messej turun
+                penumpang[i] = undefined;
+                totalWang += kostim;
+                document.getElementById("kostim").textContent = `RM ${totalWang}`;
+                document.getElementById("onkos").value = "";
+                document.getElementById("penumpangLama").value = "";
+
+            }else{
+                document.getElementById("massage").textContent = `bayar dulu ${penumpang[i]}`;
+            }
+
+
+            return;
+        }
+        else{
+            document.getElementById("massage").textContent = `nama ${penumpangLama} tiada dlm angkot`;//messej turun
+        }
+    }
+ }
 
 
         

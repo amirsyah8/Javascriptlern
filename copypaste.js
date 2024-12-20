@@ -1,5 +1,14 @@
-function test() {
-    console.log(this);  // `this` merujuk pada objek global (window di browser)
+
+function fetchData(callback) {
+    setTimeout(() => {
+        console.log("Data fetched from server");
+        callback("Data content");
+    }, 3000);
 }
 
-test();  // `this` akan merujuk ke `window` di browser
+fetchData((data) => {
+    console.log("Received:", data);
+});
+=======
+var ame;
+
