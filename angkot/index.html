@@ -11,11 +11,11 @@
     <li id="kerusi2"></li>
     <li id="kerusi3"></li>
     <li id="kerusi4"></li>
-    <!-- <li id="kerusi5"></li>
+    <li id="kerusi5"></li>
     <li id="kerusi6"></li>
     <li id="kerusi7"></li>
     <li id="kerusi8"></li>
-    <li id="kerusi9"></li> -->
+    <li id="kerusi9"></li>
 </div>
 
 <button id="naik" onclick="naik()">Naik</button><input id="penumpangBaru" type="text"><br>
@@ -28,8 +28,28 @@
 </h5>
     <script>
 let penumpang = []; // Array untuk menyimpan nama penumpang
-let totalWang = 0;
+let totalWang = 0; //variable nk simpan keuntungan
 const bilKerusi = document.getElementById("bilKerusi").childElementCount;//nak dapatkan bill kerusi
+//const enterNaik = document.getElementById("penumpangBaru"); //simpan element dulu untuk panggil
+// enterNaik.addEventListener("keydown",function(dengarkan){
+//     if(dengarkan.key === "Enter") {
+//         naik();
+//     }
+// });
+document.getElementById("penumpangBaru").addEventListener("keydown",function(dengarkan){if(dengarkan.key === "Enter")naik();});
+const enterTurun = document.getElementById("penumpangLama");
+enterTurun.addEventListener("keydown",function(dengarkan){
+    if(dengarkan.key === "Enter") {
+        turun();
+    }
+});
+
+const enterOnkos = document.getElementById("onkos");
+enterOnkos.addEventListener("keydown",function(dengarkan){
+    if(dengarkan.key === "Enter") {
+        turun();
+    }
+});
 
 function naik() {
     const penumpangBaru = document.getElementById("penumpangBaru").value.trim(); // Ambil input
