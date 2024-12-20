@@ -11,43 +11,53 @@
     <li id="kerusi2"></li>
     <li id="kerusi3"></li>
     <li id="kerusi4"></li>
-    <li id="kerusi5"></li>
+    <!-- <li id="kerusi5"></li>
     <li id="kerusi6"></li>
     <li id="kerusi7"></li>
     <li id="kerusi8"></li>
-    <li id="kerusi9"></li>
+    <li id="kerusi9"></li> -->
 </div>
 
 <button id="naik" onclick="naik()">Naik</button><input id="penumpangBaru" type="text"><br>
 <button id="turun" onclick="turun()">Turun</button> 
 <input id="penumpangLama" type="text">
 <input id="onkos" type="number">
+<h5>
+    <div id="massage"></div>
+</h5>
     <script>
 let penumpang = []; // Array untuk menyimpan nama penumpang
 
 function naik() {
     const penumpangBaru = document.getElementById("penumpangBaru").value.trim(); // Ambil input dan buang ruang kosong di hujung
 
-    if (penumpangBaru === "") {
-        console.log("Sila masukkan nama penumpang!"); // Amaran jika input kosong
+    if (penumpangBaru == "") {
+        document.getElementById("massage").textContent = "masukkan nama penumpang";//buh nama penumpang dulu
         return;
     }
 
-    if (penumpang.length < 8) { // Periksa jika masih ada ruang kosong
-        penumpang.push(penumpangBaru); // Tambah nama ke dalam array
+    if (penumpang.length < 4) { // Periksa jika masih ada ruang kosong
+        document.getElementById("massage").textContent = "";//padamkan dah naik
+        for (let i = 1; i < 5; i++) { // Loop melalui kerusi
+            let kerusi = document.getElementById(`kerusi${i}`).textContent; 
 
-        for (let i = 1; i < 9; i++) { // Loop melalui kerusi
-            let kerusi = document.getElementById(`kerusi${i}`).textContent;
+            if(kerusi == penumpangBaru){ //check adakah kerusi dah ade org
+                document.getElementById("massage").textContent = "Penumpang sudah naik"; //warning dah naik
+                return;
+            }
 
             if (!kerusi) { // Jika kerusi kosong
                 document.getElementById(`kerusi${i}`).textContent = penumpangBaru; // Masukkan nama
+                penumpang.push(penumpangBaru); // Tambah nama ke dalam array
                 break; // Hentikan loop selepas masukkan
+            } else {
+                document.getElementById("massage").textContent = "";//kerusi penuh
             }
         }
 
         document.getElementById("penumpangBaru").value = ""; // Kosongkan input
     } else {
-        console.log("Penumpang penuh!"); // Paparkan mesej jika penuh
+        document.getElementById("massage").textContent = "sudah penuh";// Paparkan mesej jika penuh
     }
 }
 
